@@ -23,10 +23,12 @@ class GifThumbState extends State<GifThaumb> {
     setState(() {
 
     });
+    //lazy loding innerhalb der Listview
     //mehrer viedos gleich zeitich
     _controller.setVolume(0);
     // das viedo beliebt  wiederholt wird
     _controller.setLooping(true);
+
     if(DISABLE_ANIMATION) {
       _controller.play();
     }
