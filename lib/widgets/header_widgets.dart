@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:lottie/lottie.dart';
 
 class Headerwidget extends StatelessWidget{
   @override
@@ -8,9 +9,9 @@ class Headerwidget extends StatelessWidget{
     return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       
-      children: const [
-        
-        Text("fliphy",style: TextStyle(
+      children:  [
+        Lottie.asset('assets/96943-app-loader.json', height: 50),
+     const Text("fliphy",style: TextStyle(
             color: Colors.white,
             fontStyle: FontStyle.italic,
             fontSize: 25),)
