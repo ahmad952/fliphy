@@ -1,6 +1,7 @@
 import 'package:fliphy/screens/base_screen.dart';
 import 'package:fliphy/services/giphy_client/giphy_client.dart';
 import 'package:fliphy/services/giphy_client/models/popular_video_response.dart';
+import 'package:fliphy/widgets/Gif_thumb.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -81,8 +82,9 @@ class GifListState extends State<GifList> {
               //damit die Containter abrunden
              ClipRRect(borderRadius: BorderRadius.circular(8.0),child: Container(
               // color: Colors.amber,
-               child: Stack(
+               child: GifThaumb(e.images?.original?.mp4,
                 //diese Sack wird später durch unsere tatsächliches Video ersetze
+
               ),
                 constraints: BoxConstraints.expand(),// auf den text schreiben können
               ),
