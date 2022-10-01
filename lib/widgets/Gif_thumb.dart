@@ -5,7 +5,9 @@ import 'package:video_player/video_player.dart';
 
 class GifThaumb extends StatefulWidget{
   final Url;
-  GifThaumb(this.Url);
+  // zur sound
+   bool playSound= false;
+  GifThaumb(this.Url,this.playSound);
 
   @override
   State<StatefulWidget> createState() {
@@ -28,10 +30,13 @@ class GifThumbState extends State<GifThaumb> {
       // sobald das video initialisert wurde
 _istloding=false;
     });
-
+// übberprüfen also   playSound false
+    if(!widget.playSound){
+      //mehrer viedos gleich zeitich lautsterke auf null
+      _controller.setVolume(0);
+    }
     //lazy loding innerhalb der Listview
-    //mehrer viedos gleich zeitich
-    _controller.setVolume(0);
+
     // das viedo beliebt  wiederholt wird
     _controller.setLooping(true);
 

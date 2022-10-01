@@ -1,4 +1,5 @@
 import 'package:fliphy/screens/base_screen.dart';
+import 'package:fliphy/screens/video_screen.dart';
 import 'package:fliphy/services/giphy_client/giphy_client.dart';
 import 'package:fliphy/services/giphy_client/models/popular_video_response.dart';
 import 'package:fliphy/widgets/Gif_thumb.dart';
@@ -73,7 +74,15 @@ class GifListState extends State<GifList> {
     //horizontal scrollen  
     return ListView(scrollDirection:Axis.horizontal , children: 
       _popularVideoResponse.data!.map((e) {
-        return Container(
+        return GestureDetector(
+            onTap: (){
+
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>VideoScreen(e.images?.original?.mp4, e.title.toString()) ));
+
+            },
+
+
+            child: Container(
           width:  300,
           child:  Stack(
             // hier kann man titel von Gif machen
@@ -82,7 +91,7 @@ class GifListState extends State<GifList> {
               //damit die Containter abrunden
              ClipRRect(borderRadius: BorderRadius.circular(8.0),child: Container(
               // color: Colors.amber,
-               child: GifThaumb(e.images?.original?.mp4,
+               child: GifThaumb(e.images?.original?.mp4,false
                 //diese Sack wird später durch unsere tatsächliches Video ersetze
 
               ),
@@ -112,7 +121,7 @@ class GifListState extends State<GifList> {
           // abstand difinieren
           margin: EdgeInsets.only(right: 10),
           
-        );
+        ));
         
       }).toList() // denn die ausführung  map funktion  laze ist  und childer ein echte Liste erwrtet ,
       
